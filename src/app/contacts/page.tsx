@@ -129,8 +129,8 @@ const filteredContacts = contacts.filter(contact => {
         />
         <DatePicker
           placeholder="Search by Date"
-          value={searchDate}
-          onChange={handleSearchDateChange}
+        //   value={searchDate}
+        //   onChange={handleSearchDateChange}
         />
       </div>
 
