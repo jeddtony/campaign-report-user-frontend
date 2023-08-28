@@ -1,12 +1,15 @@
+'use client';
+
 import React from 'react';
 import { Button, ConfigProvider } from 'antd';
 import theme from '../theme/themeConfig';
-import './globals.css';
+// import './globals.css';
+import Login from './login/page';
 
 const HomePage = () => (
   <ConfigProvider theme={theme}>
     <div className="App">
-      <Button type="primary" href='/dashboard'>Go to dashboard</Button>
+      <Login />
     </div>
   </ConfigProvider>
 );
