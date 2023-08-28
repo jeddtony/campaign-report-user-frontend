@@ -1,65 +1,89 @@
 'use client';
 
-import React, { useState }  from 'react';
-import { Layout, Menu, theme,  Button, Form, Input, InputNumber } from 'antd';
+import React from 'react';
+import { Form, Input, Button } from 'antd';
 import SideMenu from '../sidemenu';
 
-const { Header, Content, Footer, Sider } = Layout;
+const layout = {
+  labelCol: { span: 4 },
+  wrapperCol: { span: 16 },
+};
 
-type LayoutType = Parameters<typeof Form>[0]['layout'];
+const tailLayout = {
+  wrapperCol: { offset: 8, span: 16 },
+};
 
-const Dashboard: React.FC = () => {
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
-
-  const [form] = Form.useForm();
-  const [formLayout, setFormLayout] = useState<LayoutType>('horizontal');
-
-  const onFormLayoutChange = ({ layout }: { layout: LayoutType }) => {
-    setFormLayout(layout);
+const MobileResponsiveForm: React.FC = () => {
+  const onFinish = (values: any) => {
+    console.log('Received values:', values);
   };
 
-  const formItemLayout =
-    formLayout === 'horizontal' ? { labelCol: { span: 4 }, wrapperCol: { span: 14 } } : null;
-
-  const buttonItemLayout =
-    formLayout === 'horizontal' ? { wrapperCol: { span: 14, offset: 4 } } : null;
-
-
+  const onFinishFailed = (errorInfo: any) => {
+    console.log('Failed:', errorInfo);
+  };
 
   return (
-<SideMenu>
-          <Form
-      {...formItemLayout}
-      layout={'horizontal'}
-      form={form}
-      initialValues={{ layout: formLayout }}
-      onValuesChange={onFormLayoutChange}
-      style={{ maxWidth: formLayout === 'inline' ? 'none' : 600 }}
+    <SideMenu>
+      <h1>Create Contact</h1>
+    <Form
+      {...layout}
+      name="basic"
+      initialValues={{ remember: true }}
+      onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
     >
-      <Form.Item label="Name">
-        <Input placeholder="Enter number of hours" />
+      <Form.Item
+        label="Name"
+        name="name"
+        rules={[{ required: true, message: 'Please input your name!' }]}
+      >
+        <Input size="large" />
       </Form.Item>
-      <Form.Item label="Phone Number">
-        <InputNumber placeholder="input placements" />
+
+      <Form.Item
+        label="Phone Number"
+        name="phoneNumber"
+        rules={[{ required: true, message: 'Please input your phone number!' }]}
+      >
+        <Input size="large" />
       </Form.Item>
-      <Form.Item label="Address">
-        <Input placeholder="input videos" />
+
+      <Form.Item
+        label="Address"
+        name="address"
+        rules={[{ required: true, message: 'Please input your address!' }]}
+      >
+        <Input size="large" />
       </Form.Item>
-      <Form.Item label="Geo Co-ord">
-        <Input placeholder="input placeholder" />
+
+      <Form.Item
+        label="Geo Coordinates"
+        name="geoCoordinates"
+        rules={[
+          { required: true, message: 'Please input the geo coordinates!' },
+        ]}
+      >
+        <Input size="large" />
       </Form.Item>
-      <Form.Item label="Bible Studies">
-        <InputNumber placeholder="input placeholder" />
+
+      <Form.Item
+        label="Email"
+        name="email"
+        rules={[
+          { required: true, message: 'Please input your email!', type: 'email' },
+        ]}
+      >
+        <Input size="large" />
       </Form.Item>
-      <Form.Item {...buttonItemLayout}>
-        <Button type="primary">Submit</Button>
+
+      <Form.Item {...tailLayout}>
+        <Button type="primary" htmlType="submit">
+          Submit
+        </Button>
       </Form.Item>
     </Form>
-
     </SideMenu>
   );
 };
 
-export default Dashboard;
+export default MobileResponsiveForm;

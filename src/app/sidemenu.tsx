@@ -30,11 +30,20 @@ const SideMenu = ({ children }: { children: React.ReactNode })=> {
            <Menu
             theme="dark"
             mode="inline">
+
                 <Menu.Item
                     key="dashboard"
                     icon={<UserOutlined />}>
                         <Link href="/dashboard">
                         Dashboard
+                        </Link>
+                    </Menu.Item>
+
+                <Menu.Item
+                    key="hourReport"
+                    icon={<UserOutlined />}>
+                        <Link href="/hourReport">
+                        Hour Report
                         </Link>
                     </Menu.Item>
 
@@ -45,6 +54,24 @@ const SideMenu = ({ children }: { children: React.ReactNode })=> {
                         Contact Addresses
                         </Link>
                     </Menu.Item>
+
+                    <Menu.Item
+                    key="contacts"
+                    icon={<VideoCameraOutlined />}>
+                        <Link href="/contacts">
+                        Contacts
+                        </Link>
+                    </Menu.Item>
+
+                    <Menu.Item
+                    key="login"
+                    icon={<VideoCameraOutlined />}>
+                        <Link href="/login">
+                        Logout
+                        </Link>
+                    </Menu.Item>
+
+                    
             </Menu>
         </Sider>
         <Layout>
