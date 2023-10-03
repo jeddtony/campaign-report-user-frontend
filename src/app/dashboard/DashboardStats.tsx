@@ -4,36 +4,49 @@ import React from 'react';
 import { Row, Col, Card } from 'antd';
 import { UserOutlined, ClockCircleOutlined, CheckCircleOutlined } from '@ant-design/icons';
 
+const cardStyle = {
+  marginBottom: '16px', // Add some spacing between cards
+  borderRadius: '8px',  // Add rounded corners to the cards
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Add a subtle shadow
+};
 
-const DashboardStats: React.FC = () => {
+const DashboardStats: React.FC<any> = ({dashboard}) => {
   return (
     <div>
-      <h2>Statistics</h2>
+      <h2>Your Field Report</h2>
       <Row gutter={[16, 16]}>
         <Col xs={24} sm={12} md={8} lg={6}>
-          <Card>
-            <h3><UserOutlined />Contacts</h3>
-            <p>100</p>
-          </Card>
-        </Col>
-        <Col xs={24} sm={12} md={8} lg={6}>
-          <Card>
+          <Card style={cardStyle}>
             <h3>Hours</h3>
-            <p>500</p>
+            <p>{dashboard?.hours}</p>
           </Card>
         </Col>
         <Col xs={24} sm={12} md={8} lg={6}>
-          <Card>
-            <h3>Placement</h3>
-            <p>500</p>
+        <Card style={cardStyle}>
+            <h3>Placements</h3>
+            <p>{dashboard?.placement}</p>
           </Card>
         </Col>
         <Col xs={24} sm={12} md={8} lg={6}>
-          <Card>
-            <h3>Video</h3>
-            <p>500</p>
+        <Card style={cardStyle}>
+            <h3>Return Visit</h3>
+            <p>{dashboard?.rv}</p>
           </Card>
         </Col>
+        <Col xs={24} sm={12} md={8} lg={6}>
+        <Card style={cardStyle}>
+            <h3>Bible Studies</h3>
+            <p>{dashboard?.bs}</p>
+          </Card>
+        </Col>
+
+        <Col xs={24} sm={12} md={8} lg={6}>
+        <Card style={cardStyle}>
+            <h3>Video Showings</h3>
+            <p>{dashboard?.video_showing}</p>
+          </Card>
+        </Col>
+
         {/* Repeat similar structure for other stats */}
       </Row>
     </div>
