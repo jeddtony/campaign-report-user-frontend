@@ -4,7 +4,7 @@ export const getToken = () => {
   if (typeof window !== "undefined") {
     return localStorage.getItem(keyWord + "_TOKEN");
   }
-  return null;
+  return '';
   
 };
 
