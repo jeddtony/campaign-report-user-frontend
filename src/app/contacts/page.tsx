@@ -7,6 +7,7 @@ import { MailOutlined, PhoneOutlined, EnvironmentOutlined, HomeOutlined } from '
 import moment from 'moment';
 import { getStudents } from '@/api/Api';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 
 export interface Contact {
     id: number;
@@ -29,7 +30,7 @@ export interface Contact {
   };
   
 
-export default function Page() {
+function Page() {
 
     const [contacts, setContacts] = useState<Contact []>([]);
 
@@ -138,3 +139,7 @@ export default function Page() {
    </SideMenu>
   )
 }
+
+export default dynamic(() => Promise.resolve(Page), {
+  ssr: false
+})
