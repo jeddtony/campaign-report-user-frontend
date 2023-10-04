@@ -1,3 +1,5 @@
+'use client';
+
 const keyWord: string = "PREACHING_CAMPAIGN";
 
 export const getToken = () => {
