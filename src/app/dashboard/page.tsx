@@ -20,16 +20,14 @@ const DashboardPage: React.FC = () => {
     useEffect(() => {
         async function fetchStudents() {
             let result = await getDashboard();
-            console.log(result);
             setDashboard(result.report);
-            console.log('state has been set');
         }
 
         fetchStudents();
     }, [])
 
   return (
-    <SideMenu>
+    <SideMenu active='dashboard'>
     <div>
       <h1>Dashboard</h1>
       <DashboardStats dashboard={dashboard}/>

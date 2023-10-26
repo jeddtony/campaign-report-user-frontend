@@ -78,7 +78,7 @@ function Page() {
   const isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
 
   return (
-   <SideMenu>
+   <SideMenu active='contacts'>
 <div>
 <h1>Contacts</h1>
 

@@ -23,7 +23,7 @@ import { getProfile } from '@/api/Api';
 const { Header, Content, Footer, Sider } = Layout;
 const { Title } = Typography;
 
-const SideMenu = ({ children }: { children: React.ReactNode }) => {
+const SideMenu = ({ children, active }: { children: React.ReactNode, active: string }) => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -78,7 +78,8 @@ const SideMenu = ({ children }: { children: React.ReactNode }) => {
         }}
       >
         <div className="demo-logo-vertical" />
-        <Menu theme="dark" mode="inline">
+        <Menu theme="dark" mode="inline"
+        defaultSelectedKeys={[active]}>
           <Menu.Item key="dashboard" icon={<HomeOutlined />}>
             <Link href="/dashboard">Dashboard</Link>
           </Menu.Item>

@@ -53,7 +53,7 @@ const ResponsiveForm: React.FC = () => {
   }
 
   return (
-    <SideMenu>
+    <SideMenu active='hourReport'>
       <h1>Field Report</h1>
     <Form {...layout} 
     onFinish={onFinish}>
@@ -97,6 +97,10 @@ const NumberInputWithButtons: React.FC<NumberInputWithButtonsProps> = ({
   };
 
   const handleDecrement = () => {
+    if (value === 0) {
+      onValueChange(0);
+      return;
+    }
     onValueChange(value - 1);
   };
 
@@ -113,7 +117,7 @@ const NumberInputWithButtons: React.FC<NumberInputWithButtonsProps> = ({
       >
 
         <Button style={{ backgroundColor: 'lightblue' }} icon={<MinusOutlined />} onClick={handleDecrement} />
-        <InputNumber value={value} onChange={onValueChange} style={{ margin: '0 8px', flex: 1 }} />
+        <InputNumber value={value} onChange={onValueChange} style={{ margin: '0 8px', flex: 1 }} min={0} />
         <Button style={{ backgroundColor: 'lightblue' }} icon={<PlusOutlined />} onClick={handleIncrement} />
       </div>
 

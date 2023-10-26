@@ -30,7 +30,7 @@ export default function Page() {
   };
 
   return (
-    <SideMenu>
+    <SideMenu active='experiences'>
       <h1>Experiences</h1>
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>

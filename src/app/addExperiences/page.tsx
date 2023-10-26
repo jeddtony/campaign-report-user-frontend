@@ -57,7 +57,7 @@ const MobileResponsiveForm: React.FC = () => {
   };
 
   return (
-    <SideMenu>
+    <SideMenu active='addExperience'>
       <h1>New Experience/ Outstanding Comments</h1>
     <Form
       {...layout}

@@ -91,7 +91,7 @@ const [showOtherLanguages, setShowOtherLanguages] = useState<boolean>(false);
   };
 
   return (
-    <SideMenu>
+    <SideMenu active='field_report'>
       <h1>Create Contact</h1>
     <Form
       {...layout}
