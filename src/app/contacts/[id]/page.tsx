@@ -28,7 +28,7 @@ const MyComponent = ({ params, searchParams } : any) => {
     }, [])
 
     return (
-        <SideMenu>
+        <SideMenu active='contacts'>
         <h1>Contact Details</h1>
         <Row gutter={[16, 16]}>
         <Col xs={24} sm={24} md={8} lg={6}>
