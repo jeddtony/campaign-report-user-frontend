@@ -46,10 +46,9 @@ useEffect(() => {
         let results = await login(formData);
         setLoading(false);
         if(results.status == 'success') {
-            console.log("it was successful");
             setToken(results.auth_token);
 
-            window.location.replace("/dashboard");
+            window.location.replace("/hourReport");
         } else {
           setError(results.message);
         }
