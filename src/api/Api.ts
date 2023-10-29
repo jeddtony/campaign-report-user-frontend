@@ -118,3 +118,8 @@ const instance: AxiosInstance = axios.create({
     const result = await instance.get("/me");
     return result.data.data;
   }
+
+  export async function getSchedule(date: string|null): Promise<any> {
+    const result = await instance.get("/report/view-schedules?date=" + date);
+    return result.data.data;
+  }

@@ -37,7 +37,6 @@ function Page() {
     useEffect(() => {
         async function fetchStudents() {
             let result = await getStudents();
-            console.log(result);
             setContacts(result.data);
         }
 
