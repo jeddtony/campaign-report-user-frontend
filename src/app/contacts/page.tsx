@@ -78,66 +78,83 @@ function Page() {
   const isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
 
   return (
-   <SideMenu active='contacts'>
-<div>
-<h1>Contacts</h1>
+    <SideMenu active="contacts">
+      <div>
+        <h1>Contacts</h1>
 
-<div style={{ marginBottom: '16px', display: 'flex', flexDirection: isSmallScreen ? 'column' : 'row' }}>
-      <div style={{ marginRight: isSmallScreen ? '0' : '16px', flex: '1' }}>
-        <Input
-          placeholder="Search by Name, Contact, or Phone Number"
-          value={searchText}
-          onChange={handleSearchTextChange}
-        />
-      </div>
-      {isSmallScreen && <br />} {/* Add a line break on small screens */}
-      <div style={{ flex: '1' }}>
-        <DatePicker
-          placeholder="Date Search"
-          //   value={searchDate}
-          //   onChange={handleSearchDateChange}
-        />
-      </div>
-    </div>
-
-<List
-      grid={{
-        gutter: 16,
-        xs: 1,
-        sm: 2,
-        md: 3,
-      }}
-      dataSource={contacts}
-      renderItem={(contact) => (
-        <List.Item>
-          <Card style={cardStyle}>
-            <Card.Meta
-              avatar={<Avatar src={contact.avatar} />}
-              title={contact.name}
-              description={contact.email}
+        <div
+          style={{
+            marginBottom: "16px",
+            display: "flex",
+            flexDirection: isSmallScreen ? "column" : "row",
+          }}
+        >
+          <div style={{ marginRight: isSmallScreen ? "0" : "16px", flex: "1" }}>
+            <Input
+              placeholder="Search by Name, Contact, or Phone Number"
+              value={searchText}
+              onChange={handleSearchTextChange}
             />
-            <p><PhoneOutlined /> {contact.phone_number}</p>
-            <p><HomeOutlined /> {contact.address}</p>
-            {/* <p><EnvironmentOutlined /> <a>Click to view on map</a>{contact.coordinates}</p> */}
-            <Link href={`/contacts/${contact.id}`}>
-                
-                  <Button type="primary">View</Button>
-                
-              </Link>
-          </Card>
-        </List.Item>
-      )}
-    />
-<Pagination
-        current={currentPage}
-        pageSize={pageSize}
-        total={contacts.length}
-        // onChange={handlePageChange}
-        style={{ marginTop: '16px', textAlign: 'center' }}
-      />
-</div>
-   </SideMenu>
-  )
+          </div>
+          {isSmallScreen && <br />} {/* Add a line break on small screens */}
+          <div style={{ flex: "1" }}>
+            <DatePicker
+              placeholder="Date Search"
+              //   value={searchDate}
+              //   onChange={handleSearchDateChange}
+            />
+          </div>
+        </div>
+
+        <List
+          grid={{
+            gutter: 16,
+            xs: 1,
+            sm: 2,
+            md: 3,
+          }}
+          dataSource={contacts}
+          renderItem={(contact) => (
+            <List.Item>
+              <Card style={cardStyle}>
+                <Card.Meta
+                  avatar={<Avatar src={contact.avatar} />}
+                  title={contact.name}
+                  description={contact.email}
+                />
+                <p>
+                  <PhoneOutlined /> {contact.phone_number}
+                </p>
+                <p>
+                  <HomeOutlined /> {contact.address}
+                </p>
+                {/* <p><EnvironmentOutlined /> <a>Click to view on map</a>{contact.coordinates}</p> */}
+                <div
+                  style={{ display: "flex", justifyContent: "space-between" }}
+                >
+                  <Link href={`/contacts/${contact.id}`}>
+                    <Button type="primary">View</Button>
+                  </Link>
+                  <Link href={`/contacts/${contact.id}/edit`}>
+                  <Button type="default" >
+                    Edit
+                  </Button>
+                  </Link>
+                </div>
+              </Card>
+            </List.Item>
+          )}
+        />
+        <Pagination
+          current={currentPage}
+          pageSize={pageSize}
+          total={contacts.length}
+          // onChange={handlePageChange}
+          style={{ marginTop: "16px", textAlign: "center" }}
+        />
+      </div>
+    </SideMenu>
+  );
 }
 
 export default dynamic(() => Promise.resolve(Page), {

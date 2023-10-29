@@ -31,7 +31,7 @@ export default function Page() {
 
   return (
     <SideMenu active='experiences'>
-      <h1>Experiences</h1>
+      <h1>View Your Submitted Experiences</h1>
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
         {experiences.map((post, index) => (

@@ -1,11 +1,13 @@
 'use client';
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Form, Input, Button, Spin, message, Select, Radio } from 'antd';
 import type { RadioChangeEvent } from 'antd';
-import SideMenu from '../sidemenu';
+import SideMenu from '../../../sidemenu';
 import { postStudent } from '@/api/Api';
 import Swal from 'sweetalert2';
+import { Contact } from '../../page';
+import { getOneStudent } from "@/api/Api";
 
 const layout = {
   labelCol: { span: 4 },
@@ -19,12 +21,40 @@ const tailLayout = {
 const { Option } = Select;
 
 const languages: string[] =  ['English', 'Twi', 'Ewe', 'Ga', 'Dangme', 'Hausa', 'Yoruba', 'Others']
-const MobileResponsiveForm: React.FC = () => {
+
+
+const MobileResponsiveForm: React.FC = ({ params } : any)  => {
+
+  const [contact, setContact] = useState<any>({});
+    const id = params?.id;
+
 const [defaultLanguage, setDefaultLanguage] = useState<string>('Pidgin (West Africa)');
 const [showSecondaryLanguage, setShowSecondaryLanguage] = useState<boolean>(false);
 const [showOtherLanguages, setShowOtherLanguages] = useState<boolean>(false);
-  const [loading, setLoading] = useState(false);
+const [loading, setLoading] = useState(false);
+
+const [form] = Form.useForm();
   
+useEffect(() => {
+  async function fetchStudents() {
+      let result = await getOneStudent(id);
+      setContact(result.data[0]);
+      console.log(result.data[0]);
+      let data = result.data[0];
+      form.setFieldsValue({
+        name: data.name,
+        phoneNumber: data.phone_number,
+        landmark: data.land_mark,
+        last_discussion: data.last_discussion,
+        next_discussion: data.next_discussion,
+        publication: data.publication_offered,
+        address: data.address,
+        language: data.preferred_language
+      })
+  }
+
+  fetchStudents();
+}, [])
 
   const onChange = (e: RadioChangeEvent) => {
     console.log('radio checked', e.target.value);
@@ -50,15 +80,14 @@ const [showOtherLanguages, setShowOtherLanguages] = useState<boolean>(false);
   };
 
   const onFinish = (values: any) => {
-    // console.log('Received values:', values);
-    
     let formData = {
+      id,
       name: values.name,
       phone_number: values.phoneNumber,
       address: values.address,
       geo_cord: '99,89',
       land_mark: values.landmark,
-      preferred_language: defaultLanguage,
+      preferred_language: values.language,
       last_discussion: values.last_discussion,
       next_discussion: values.next_discussion,
       publication_offered: values.publication
@@ -70,11 +99,11 @@ const [showOtherLanguages, setShowOtherLanguages] = useState<boolean>(false);
       // console.log(results);
       setLoading(false);
       if(results.status == 'success') {
-        message.success('Student submitted successfully');
+        message.success('Student updated successfully');
         Swal.fire({
           icon: 'success',
           title: 'Success',
-          text: 'Contact submitted successfully!',
+          text: 'Contact updated successfully!',
         });
 
         setTimeout(() => {
@@ -92,11 +121,11 @@ const [showOtherLanguages, setShowOtherLanguages] = useState<boolean>(false);
 
   return (
     <SideMenu active='field_report'>
-      <h1>Create Contact of Interested Ones Found</h1>
+      <h1>Edit Contact</h1>
     <Form
       {...layout}
-      name="basic"
-      initialValues={{ remember: true }}
+      name="editContact"
+      form={form}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
     >
@@ -133,13 +162,9 @@ const [showOtherLanguages, setShowOtherLanguages] = useState<boolean>(false);
 
       <Form.Item
         label="Language"
-    
+        name="language"
       >
-        <Radio.Group onChange={onChange} value={defaultLanguage}>
-      <Radio value={'Pidgin (West Africa)'}>Primary language (Pidgin - West Africa)</Radio>
-      <Radio value={'secondary language'}>Secondary Language</Radio>
-
-    </Radio.Group>
+        <Input size="large" disabled={true}/>
       </Form.Item>
       
     {showSecondaryLanguage && 

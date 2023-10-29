@@ -22,7 +22,6 @@ const MobileResponsiveForm: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   const onFinish = (values: any) => {
-    // console.log('Received values:', values);
     
     let formData = {
       title: values.title,
@@ -58,7 +57,7 @@ const MobileResponsiveForm: React.FC = () => {
 
   return (
     <SideMenu active='addExperience'>
-      <h1>New Experience/ Outstanding Comments</h1>
+      <h1>Submit Your Interesting Experiences From the Campaign</h1>
     <Form
       {...layout}
       name="basic"

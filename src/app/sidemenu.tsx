@@ -33,7 +33,6 @@ const SideMenu = ({ children, active }: { children: React.ReactNode, active: str
   useEffect(() => {
     async function fetch() {
         let result = await getProfile();
-        console.log(result);
         setDetail(result);
     }
 
@@ -45,9 +44,9 @@ const SideMenu = ({ children, active }: { children: React.ReactNode, active: str
       <Menu.Item>
         <strong>Name:</strong> {detail?.name}
       </Menu.Item>
-      <Menu.Item>
+      {/* <Menu.Item>
         <strong>Email:</strong> {detail?.email}
-      </Menu.Item>
+      </Menu.Item> */}
       <Menu.Item>
         <strong>Congregation:</strong> {detail?.congregation.name}
       </Menu.Item>
@@ -71,10 +70,10 @@ const SideMenu = ({ children, active }: { children: React.ReactNode, active: str
         breakpoint="lg"
         collapsedWidth="0"
         onBreakpoint={(broken) => {
-          console.log(broken);
+   
         }}
         onCollapse={(collapsed, type) => {
-          console.log(collapsed, type);
+   
         }}
       >
         <div className="demo-logo-vertical" />
