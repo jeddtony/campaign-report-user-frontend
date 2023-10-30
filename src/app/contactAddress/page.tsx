@@ -105,7 +105,7 @@ const [showOtherLanguages, setShowOtherLanguages] = useState<boolean>(false);
         name="name"
         rules={[{ required: true, message: 'Please input your name!' }]}
       >
-        <Input size="large" />
+        <Input size="large" autoComplete='off'/>
       </Form.Item>
 
       <Form.Item
@@ -113,7 +113,7 @@ const [showOtherLanguages, setShowOtherLanguages] = useState<boolean>(false);
         name="phoneNumber"
         rules={[{ required: false}]}
       >
-        <Input size="large" />
+        <Input size="large" autoComplete='off'/>
       </Form.Item>
 
       <Form.Item
@@ -121,14 +121,14 @@ const [showOtherLanguages, setShowOtherLanguages] = useState<boolean>(false);
         name="address"
         rules={[{ required: true, message: 'Please input your address!' }]}
       >
-        <Input size="large" />
+        <Input size="large" autoComplete='off'/>
       </Form.Item>
 
       <Form.Item
         label="Nearest Landmark"
         name="landmark"
       >
-        <Input size="large" />
+        <Input size="large" autoComplete='off'/>
       </Form.Item>
 
       <Form.Item
@@ -185,7 +185,7 @@ const [showOtherLanguages, setShowOtherLanguages] = useState<boolean>(false);
           { required: true, message: 'Enter topic discussed on last visit' },
         ]}
       >
-        <Input size="large" />
+        <Input size="large" autoComplete='off'/>
       </Form.Item>
 
       <Form.Item
@@ -195,7 +195,7 @@ const [showOtherLanguages, setShowOtherLanguages] = useState<boolean>(false);
           { required: true, message: 'Enter topic to be discussed on next visit' },
         ]}
       >
-        <Input size="large" />
+        <Input size="large" autoComplete='off'/>
       </Form.Item>
 
       {/* <Form.Item

@@ -70,7 +70,7 @@ const MobileResponsiveForm: React.FC = () => {
         name="title"
         rules={[{ required: true, message: 'Please input your title!' }]}
       >
-        <Input size="large" />
+        <Input size="large" autoComplete='off'/>
       </Form.Item>
 
       <Form.Item

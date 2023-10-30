@@ -48,7 +48,7 @@ useEffect(() => {
         if(results.status == 'success') {
             setToken(results.auth_token);
 
-            window.location.replace("/hourReport");
+            window.location.replace("/dashboard");
         } else {
           setError(results.message);
         }
@@ -80,7 +80,7 @@ useEffect(() => {
           </Select>
         </Form.Item>
         <Form.Item name="phone_number" label="Phone Number" rules={[{ required: false, message: 'Please input your phone number!' }]}>
-          <Input type='text' style={{ width: '100%' }} placeholder="Phone Number" />
+          <Input type='text' style={{ width: '100%' }} placeholder="Phone Number" autoComplete='off'/>
         </Form.Item>
         {/* <Form.Item name="password" label="Password" rules={[{ required: false, message: 'Please input your password!' }]}>
           <Input.Password placeholder="Password" />

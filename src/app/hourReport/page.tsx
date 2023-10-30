@@ -54,7 +54,7 @@ const ResponsiveForm: React.FC = () => {
 
   return (
     <SideMenu active='hourReport'>
-      <h1>Field Report</h1>
+      <h1>Field Report for the Campaign Only</h1>
     <Form {...layout} 
     onFinish={onFinish}>
 <NumberInputWithButtons label="Hours" value={hours} onValueChange={setHours} />

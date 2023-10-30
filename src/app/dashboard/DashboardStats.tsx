@@ -18,32 +18,32 @@ const DashboardStats: React.FC<any> = ({dashboard}) => {
         <Col xs={24} sm={12} md={8} lg={6}>
           <Card style={cardStyle}>
             <h3>Hours</h3>
-            <p>{dashboard?.hours}</p>
+            <p>{dashboard?.hours?? 0}</p>
           </Card>
         </Col>
         <Col xs={24} sm={12} md={8} lg={6}>
         <Card style={cardStyle}>
             <h3>Placements</h3>
-            <p>{dashboard?.placement}</p>
+            <p>{dashboard?.placement?? 0}</p>
           </Card>
         </Col>
         <Col xs={24} sm={12} md={8} lg={6}>
         <Card style={cardStyle}>
             <h3>Return Visit</h3>
-            <p>{dashboard?.rv}</p>
+            <p>{dashboard?.rv?? 0}</p>
           </Card>
         </Col>
         <Col xs={24} sm={12} md={8} lg={6}>
         <Card style={cardStyle}>
             <h3>Bible Studies</h3>
-            <p>{dashboard?.bs}</p>
+            <p>{dashboard?.bs?? 0}</p>
           </Card>
         </Col>
 
         <Col xs={24} sm={12} md={8} lg={6}>
         <Card style={cardStyle}>
             <h3>Video Showings</h3>
-            <p>{dashboard?.video_showing}</p>
+            <p>{dashboard?.video_showing?? 0}</p>
           </Card>
         </Col>
 

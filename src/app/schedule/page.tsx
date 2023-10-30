@@ -1,7 +1,7 @@
 'use client';
 
 import React, {useState, useEffect} from 'react';
-import { Tabs, Typography, Divider } from 'antd';
+import { Tabs, Typography, Divider, Button } from 'antd';
 import type { TabsProps } from 'antd';
 import SideMenu from '../sidemenu';
 import { getSchedule } from '@/api/Api';
@@ -9,6 +9,7 @@ import moment from 'moment';
 import type { Dayjs } from 'dayjs';
 import { Calendar, theme } from 'antd';
 import type { CalendarProps } from 'antd';
+import Link from 'next/link';
 
 const { Title, Text } = Typography;
 
@@ -63,7 +64,10 @@ const App: React.FC = () => {
           label: 'Today',
           children: (<>
           <Text strong>Date:</Text> <Text>{schedule?.date}</Text> <br /> <br />
-          <Text strong>Meeting Place:</Text> <Text>{schedule?.venue}</Text> <br />
+          <Text strong>Meeting Place:</Text> <Text>{schedule?.venue}</Text> <br /> <br />
+          <Link href={schedule?.venue_google_link}>
+                    <Button type="primary">View location on Google Map</Button>
+                  </Link>
           </>),
         },
         {
@@ -72,7 +76,10 @@ const App: React.FC = () => {
           children:(
             <>
             <Text strong>Date:</Text> <Text>{schedule?.date}</Text> <br /> <br />
-          <Text strong>Meeting Place:</Text> <Text>{schedule?.venue}</Text> <br />
+          <Text strong>Meeting Place:</Text> <Text>{schedule?.venue}</Text> <br /> <br />
+          <Link href={schedule?.venue_google_link}>
+                    <Button type="primary">View location on Google Map</Button>
+                  </Link>
           <Divider orientation='left'>Select date to view Venue</Divider>
     <div style={wrapperStyle}>
       <Calendar fullscreen={false} onPanelChange={onPanelChange} onChange={onCalendarChange}/>
