@@ -65,7 +65,7 @@ const App: React.FC = () => {
           children: (<>
           <Text strong>Date:</Text> <Text>{schedule?.date}</Text> <br /> <br />
           <Text strong>Meeting Place:</Text> <Text>{schedule?.venue}</Text> <br /> <br />
-          <Link href={schedule?.venue_google_link}>
+          <Link href={schedule?.venue_google_link?? ''}>
                     <Button type="primary">View location on Google Map</Button>
                   </Link>
           </>),
@@ -77,7 +77,7 @@ const App: React.FC = () => {
             <>
             <Text strong>Date:</Text> <Text>{schedule?.date}</Text> <br /> <br />
           <Text strong>Meeting Place:</Text> <Text>{schedule?.venue}</Text> <br /> <br />
-          <Link href={schedule?.venue_google_link}>
+          <Link href={schedule?.venue_google_link?? ''}>
                     <Button type="primary">View location on Google Map</Button>
                   </Link>
           <Divider orientation='left'>Select date to view Venue</Divider>

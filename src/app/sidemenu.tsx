@@ -97,9 +97,9 @@ const SideMenu = ({ children, active }: { children: React.ReactNode, active: str
           <Menu.Item key="addExperience" icon={<UserAddOutlined />}>
             <Link href="/addExperiences">Add Experience</Link>
           </Menu.Item>
-          <Menu.Item key="schedule" icon={<UserAddOutlined />}>
+          {/* <Menu.Item key="schedule" icon={<UserAddOutlined />}>
             <Link href="/schedule">View Schedule</Link>
-          </Menu.Item>
+          </Menu.Item> */}
           <Menu.Item key="login" icon={<VideoCameraOutlined />}>
             <Link href="/login">Logout</Link>
           </Menu.Item>
