@@ -95,7 +95,7 @@ const instance: AxiosInstance = axios.create({
   }
 
   export async function getStudents(): Promise<any> {
-    const result = await instance.get("/report/view-student");
+    const result = await instance.get("/report/view-student?user_type=user");
     return result.data.data;
   }
 
