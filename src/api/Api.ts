@@ -110,7 +110,7 @@ const instance: AxiosInstance = axios.create({
   }
 
   export async function getExperiences(): Promise<any> {
-    const result = await instance.get("/report/view-experiences");
+    const result = await instance.get("/report/view-experiences?user_type=user");
     return result.data.data;
   }
 
