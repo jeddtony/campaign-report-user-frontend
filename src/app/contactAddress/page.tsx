@@ -55,7 +55,7 @@ const [location, setLocation] = useState<any>('');
     
     let formData = {
       name: values.name,
-      phone_number: values.phoneNumber,
+      phone_number: values.phoneNumber ?? '0',
       address: values.address,
       geo_cord: location,
       land_mark: values.landmark,
