@@ -3,7 +3,7 @@
 import React, {useState, useEffect} from 'react'
 import SideMenu from '../sidemenu';
 import { Card, Avatar, List, Pagination, Input, DatePicker, Button } from 'antd';
-import { MailOutlined, PhoneOutlined, EnvironmentOutlined, HomeOutlined } from '@ant-design/icons';
+import { MailOutlined, PhoneOutlined, AimOutlined, HomeOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import { getStudents } from '@/api/Api';
 import Link from 'next/link';
@@ -127,6 +127,12 @@ function Page() {
                 <p>
                   <HomeOutlined /> {contact.address}
                 </p>
+                <p>
+                <Link href={`https://www.google.com/maps?q=${contact.geo_cord}`}>
+                   <AimOutlined /> View on Map
+                   </Link>
+                </p>
+
                 {/* <p><EnvironmentOutlined /> <a>Click to view on map</a>{contact.coordinates}</p> */}
                 <div
                   style={{ display: "flex", justifyContent: "space-between" }}

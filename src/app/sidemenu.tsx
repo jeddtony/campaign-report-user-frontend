@@ -5,7 +5,8 @@ import {
   VideoCameraOutlined,
   HomeOutlined,
   CalendarOutlined,
-  UsergroupAddOutlined
+  UsergroupAddOutlined,
+  LogoutOutlined
 } from '@ant-design/icons';
 import {
   Layout,
@@ -100,7 +101,11 @@ const SideMenu = ({ children, active }: { children: React.ReactNode, active: str
           {/* <Menu.Item key="schedule" icon={<UserAddOutlined />}>
             <Link href="/schedule">View Schedule</Link>
           </Menu.Item> */}
-          <Menu.Item key="login" icon={<VideoCameraOutlined />}>
+           <Menu.Item key="tutorialVideo" icon={<VideoCameraOutlined />}>
+            <Link href="https://drive.google.com/file/d/1By0biHhF9eBG5raDfBIveKtit65NxCDX/view?usp=sharing">Tutorial Video</Link>
+          </Menu.Item>
+
+          <Menu.Item key="login" icon={<LogoutOutlined />}>
             <Link href="/login">Logout</Link>
           </Menu.Item>
         </Menu>

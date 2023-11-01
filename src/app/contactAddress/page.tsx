@@ -23,6 +23,7 @@ const MobileResponsiveForm: React.FC = () => {
 const [defaultLanguage, setDefaultLanguage] = useState<string>('Pidgin (West Africa)');
 const [showSecondaryLanguage, setShowSecondaryLanguage] = useState<boolean>(false);
 const [showOtherLanguages, setShowOtherLanguages] = useState<boolean>(false);
+const [location, setLocation] = useState<any>('');
   const [loading, setLoading] = useState(false);
   
 
@@ -56,7 +57,7 @@ const [showOtherLanguages, setShowOtherLanguages] = useState<boolean>(false);
       name: values.name,
       phone_number: values.phoneNumber,
       address: values.address,
-      geo_cord: '99,89',
+      geo_cord: location,
       land_mark: values.landmark,
       preferred_language: defaultLanguage,
       last_discussion: values.last_discussion,
@@ -84,6 +85,24 @@ const [showOtherLanguages, setShowOtherLanguages] = useState<boolean>(false);
       }
     }
     postForm();
+  };
+
+  const getLocation = () => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { coords } = position;
+          console.log("Latitude:", coords.latitude);
+          console.log("Longitude:", coords.longitude);
+          setLocation(coords.latitude + ',' + coords.longitude)
+        },
+        (error) => {
+          console.error("Error getting geolocation:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported.");
+    }
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -129,6 +148,15 @@ const [showOtherLanguages, setShowOtherLanguages] = useState<boolean>(false);
         name="landmark"
       >
         <Input size="large" autoComplete='off'/>
+      </Form.Item>
+
+      <Form.Item
+        label="Get Location"
+        name="landmark"
+      >
+      <Button type="dashed" onClick={getLocation}> Get Location using Google</Button>
+      <br /> <br />
+      {location}
       </Form.Item>
 
       <Form.Item

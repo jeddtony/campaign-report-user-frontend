@@ -105,7 +105,7 @@ const instance: AxiosInstance = axios.create({
   }
 
   export async function getDashboard(): Promise<any> {
-    const result = await instance.get("/report/view-dashboard");
+    const result = await instance.get("/report/view-dashboard?user_type=user");
     return result.data.data;
   }
 
