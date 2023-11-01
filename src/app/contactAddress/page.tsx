@@ -18,7 +18,7 @@ const tailLayout = {
 
 const { Option } = Select;
 
-const languages: string[] =  ['English', 'Twi', 'Ewe', 'Ga', 'Dangme', 'Hausa', 'Yoruba', 'Others']
+const languages: string[] =  ['English', 'Twi', 'Ewe', 'Ga', 'Dangme', 'Hausa', 'Yoruba', 'Igbo', 'Others']
 const MobileResponsiveForm: React.FC = () => {
 const [defaultLanguage, setDefaultLanguage] = useState<string>('Pidgin (West Africa)');
 const [showSecondaryLanguage, setShowSecondaryLanguage] = useState<boolean>(false);
