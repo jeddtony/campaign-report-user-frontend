@@ -15,7 +15,7 @@ export interface Contact {
     email: string;
     phone_number: string;
     address: string;
-    coordinates: string;
+    geo_cord: string;
     avatar: string;
     land_mark: string;
     preferred_language: string;
