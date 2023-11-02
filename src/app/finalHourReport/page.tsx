@@ -6,7 +6,7 @@ import { Form, Input, Button, InputNumber } from 'antd';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import Swal from 'sweetalert2';
-import { NumberInputWithButtons } from '../hourReport/page';
+import NumberInputWithButtons from '../hourReport/NumberInputWithButtons';
 import { getDashboard, postReport } from '@/api/Api';
 import { Dashboard } from '../dashboard/page';
 
