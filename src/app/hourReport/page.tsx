@@ -81,13 +81,12 @@ const ResponsiveForm: React.FC = () => {
 export default ResponsiveForm;
 
 
-export interface NumberInputWithButtonsProps {
+interface NumberInputWithButtonsProps {
   label: string;
   value: number;
   onValueChange: any
 }
-
-export const NumberInputWithButtons: React.FC<NumberInputWithButtonsProps> = ({
+const NumberInputWithButtons: React.FC<NumberInputWithButtonsProps> = ({
   label,
   value,
   onValueChange,
@@ -124,3 +123,5 @@ export const NumberInputWithButtons: React.FC<NumberInputWithButtonsProps> = ({
     </div>
   );
 };
+
+export {NumberInputWithButtons}
