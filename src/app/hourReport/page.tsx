@@ -81,19 +81,19 @@ const ResponsiveForm: React.FC = () => {
 export default ResponsiveForm;
 
 
-interface NumberInputWithButtonsProps {
+export interface NumberInputWithButtonsProps {
   label: string;
   value: number;
   onValueChange: any
 }
 
-const NumberInputWithButtons: React.FC<NumberInputWithButtonsProps> = ({
+export const NumberInputWithButtons: React.FC<NumberInputWithButtonsProps> = ({
   label,
   value,
   onValueChange,
 }) => {
   const handleIncrement = () => {
-    onValueChange(value + 1);
+    onValueChange(++value);
   };
 
   const handleDecrement = () => {

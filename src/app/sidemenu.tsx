@@ -6,7 +6,8 @@ import {
   HomeOutlined,
   CalendarOutlined,
   UsergroupAddOutlined,
-  LogoutOutlined
+  LogoutOutlined,
+  HighlightOutlined
 } from '@ant-design/icons';
 import {
   Layout,
@@ -97,6 +98,10 @@ const SideMenu = ({ children, active }: { children: React.ReactNode, active: str
           </Menu.Item>
           <Menu.Item key="addExperience" icon={<UserAddOutlined />}>
             <Link href="/addExperiences">Add Experience</Link>
+          </Menu.Item>
+
+          <Menu.Item key="finalReport" icon={<HighlightOutlined />}>
+            <Link href="/finalHourReport">Edit Hour Report</Link>
           </Menu.Item>
           {/* <Menu.Item key="schedule" icon={<UserAddOutlined />}>
             <Link href="/schedule">View Schedule</Link>

@@ -6,7 +6,7 @@ import DashboardMap from './DashboardMap';
 import SideMenu from '../sidemenu';
 import { getDashboard } from '@/api/Api';
 
-interface Dashboard {
+export interface Dashboard {
     hours: number;
     placement: number;
     rv: number;
