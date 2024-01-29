@@ -20,7 +20,7 @@ const { Option } = Select;
 
 const languages: string[] =  ['English', 'Twi', 'Ewe', 'Ga', 'Dangme', 'Hausa', 'Yoruba', 'Igbo', 'Others']
 const MobileResponsiveForm: React.FC = () => {
-const [defaultLanguage, setDefaultLanguage] = useState<string>('Pidgin (West Africa)');
+const [defaultLanguage, setDefaultLanguage] = useState<string>('Chinese');
 const [showSecondaryLanguage, setShowSecondaryLanguage] = useState<boolean>(false);
 const [showOtherLanguages, setShowOtherLanguages] = useState<boolean>(false);
 const [location, setLocation] = useState<any>('');
@@ -164,8 +164,8 @@ const [location, setLocation] = useState<any>('');
     
       >
         <Radio.Group onChange={onChange} value={defaultLanguage}>
-      <Radio value={'Pidgin (West Africa)'}>Primary language (Pidgin - West Africa)</Radio>
-      <Radio value={'secondary language'}>Secondary Language</Radio>
+      <Radio value={'Chinese'}> Chinese</Radio>
+      
 
     </Radio.Group>
       </Form.Item>
