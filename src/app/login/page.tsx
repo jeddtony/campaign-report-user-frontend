@@ -72,7 +72,7 @@ useEffect(() => {
         { error && <Alert message={error} type="error" style={{marginBottom: "10px"}}/>}
 
         <Form.Item name="congregation" label="Congregation" rules={[{ required: false, message: 'Please select a congregation!' }]}>
-          <Select placeholder="Select a congregation">
+          <Select placeholder="Select a congregation" listHeight={1000}>
           {congregations.map((congregation, index) => (
               <Option key={index} value={congregation.id}>{congregation.name}</Option>
             ))}
